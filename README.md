@@ -1,53 +1,73 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# API de Servicios 2FA (Autenticación de Dos Factores)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este proyecto es una API RESTful construida con Laravel para gestionar autenticación de dos factores (2FA) en aplicaciones. Incluye funcionalidades como envío de OTP por email, verificación de dispositivos confiables y gestión de servicios.
 
-## About Laravel
+## Requisitos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP 8.1 o superior
+- Composer
+- Node.js y npm (para assets frontend, opcional)
+- Base de datos (MySQL, PostgreSQL, SQLite, etc.)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Instalación
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. **Clona el repositorio:**
+   ```bash
+   git clone https://github.com/ramiropelelm10-debug/sistema-asistencia-2fa.git
+   cd api-2fa-services
+   ```
 
-## Learning Laravel
+2. **Instala las dependencias de PHP:**
+   ```bash
+   composer install
+   ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. **Instala las dependencias de Node.js (opcional, para frontend):**
+   ```bash
+   npm install
+   npm run build
+   ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+4. **Configura el archivo de entorno:**
+   - Copia el archivo `.env.example` a `.env`:
+     ```bash
+     cp .env.example .env
+     ```
+   - Edita `.env` y configura:
+     - Conexión a la base de datos (DB_HOST, DB_DATABASE, etc.)
+     - Configuración de email (MAIL_MAILER, MAIL_HOST, etc.)
+     - Clave de aplicación: `php artisan key:generate`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. **Ejecuta las migraciones de la base de datos:**
+   ```bash
+   php artisan migrate
+   ```
 
-## Laravel Sponsors
+6. **Ejecuta el servidor:**
+   ```bash
+   php artisan serve
+   ```
+   La API estará disponible en `http://localhost:8000`.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Uso
 
-### Premium Partners
+- Registra usuarios y servicios.
+- Envía OTP por email para verificación.
+- Verifica códigos OTP y administra dispositivos confiables.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Consulta la documentación de la API en las rutas definidas en `routes/api.php`.
+
+## Contribución
+
+1. Haz un fork del proyecto.
+2. Crea una rama para tu feature: `git checkout -b feature/nueva-funcionalidad`.
+3. Commit tus cambios: `git commit -m 'Agrega nueva funcionalidad'`.
+4. Push a la rama: `git push origin feature/nueva-funcionalidad`.
+5. Abre un Pull Request.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT.
 
 ## Contributing
 
